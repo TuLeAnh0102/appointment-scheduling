@@ -1,0 +1,59 @@
+.info_formduan {
+  /* border: solid green; */
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    color: rgba(3,73,164,1);
+}
+.info_dong{
+    margin-top: 8px;
+    display: block;
+}
+.info_dong .info_tendonvi {
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    color: rgba(3,73,164,1);
+    overflow: hidden;
+    text-overflow: clip;
+}
+.info_chucvu{
+    display: inline-block;
+}
+.info_nhomdichvu{
+  margin-top: 30px;
+  text-align: right;
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 15px;
+  color: rgb(3, 73, 164);
+}
+.form_logo {
+  border: 1px solid;
+  border-color: #d8dbe0;
+  padding-bottom: 0px;
+}
+.logo_duan {
+display: inline-block;
+          width: auto;
+          height: auto;
+      margin: auto;
+}
+.button_themmoi {
+  text-align: center;
+  margin: auto;
+}
+
+.formthemoi {
+  text-align: left;
+  margin-top: 5px;
+
+}
+th {
+  background-color: #d8dbe0;
+}

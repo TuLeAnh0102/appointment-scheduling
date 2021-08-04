@@ -52,26 +52,25 @@ export default function ModalInsert({ isOpen, dataOptions, valueDefault }) {
     const toggle = () => {
         setModal(!modal);
     }
-    const handelLoaiTKChange = () =>
-    {
+    const handelLoaiTKChange = () => {
 
     }
     const upDateNhomQuyen = (data) => {
-  
+
         cauhinhhethongService.modifyNhomQuyen(data).then((res) => {
             //setisLoadding(0);
             if (res["id"] === 1) {
-              //
-              alert("Cập nhật thành công!");
+                //
+                alert("Cập nhật thành công!");
             }
-          });
+        });
     }
     const handelUpdateClick = () => {
         console.log("???")
-       let data = {
-           id_loai_tai_khoan: 1,
-           ten_nhom_quyen: "Nhân viên y tế",
-           id_nhom_quyen:  0
+        let data = {
+            id_loai_tai_khoan: 1,
+            ten_nhom_quyen: "Nhân viên y tế",
+            id_nhom_quyen: 0
         }
         upDateNhomQuyen(data);
     }

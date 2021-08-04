@@ -16,9 +16,6 @@ const loading = (
 )
 
 const TheContent = () => {
-  let user = JSON.parse(localStorage.getItem("user"));
-  let url = "/to-khai-y-te/"
-  let zaloID = 0
   return (
     <main className="c-main">
       <CContainer fluid>
@@ -38,11 +35,6 @@ const TheContent = () => {
                   )} />
               )
             })}
-
-            {(user && user.ma_chot) &&
-              <Redirect from="/" to={url + user.ma_chot +'/'+ zaloID} />
-            }
-            <Redirect from="/" to={"/to-khai-y-te/0/" + zaloID}/>
           </Switch>
         </Suspense>
       </CContainer>

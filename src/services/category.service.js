@@ -1,7 +1,7 @@
 import config from '../configs/config';
-import { authHeader, history } from '../helpers';
-
+import { authHeader } from '../helpers';
 import axios from 'axios';
+import { commonService } from './common.service';
 
 export const categoryService = {
     getDanhMucTinh,
@@ -21,7 +21,7 @@ async function getDanhMucTinh() {
             return res.data;
         })
     } catch (error) {
-        return handleError(error);
+        return commonService.handleError(error);
     }
 }
 
@@ -38,7 +38,7 @@ async function getDanhMucHuyen(ma_tinh) {
             return res.data;
         })
     } catch (error) {
-        return handleError(error);
+        return commonService.handleError(error);
     }
 }
 
@@ -52,7 +52,7 @@ async function getAllDanhMucHuyen() {
             return res.data;
         })
     } catch (error) {
-        return handleError(error);
+        return commonService.handleError(error);
     }
 }
 
@@ -66,7 +66,7 @@ async function getAllDanhMucXa() {
             return res.data;
         })
     } catch (error) {
-        return handleError(error);
+        return commonService.handleError(error);
     }
 }
 
@@ -84,14 +84,7 @@ async function getDanhMucXa(ma_huyen) {
             return res.data;
         })
     } catch (error) {
-        return handleError(error);
+        return commonService.handleError(error);
     }
 }
 
-function handleError(error) {
-    if( error.isAxiosError && error.response.status === 401)
-    {
-        // history.push('/login');
-    }
-    return Promise.reject(error);
-}

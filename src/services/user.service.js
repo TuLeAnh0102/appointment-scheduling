@@ -1,7 +1,7 @@
 import config from '../configs/config';
-import { authHeader, history } from '../helpers';
-
+import { authHeader } from '../helpers';
 import axios from 'axios';
+import {commonService} from './common.service';
 
 export const userService = {
     login,
@@ -17,7 +17,7 @@ async function login (username, password){
         return await axios({
             method: 'Post',
             headers: authHeader(),
-            url : `${config.apiUrl}/api/nhan-vien/login`,
+            url : `${config.apiUrl}/api/user/login`,
             params: {
                 'username' : username,
                 'password': password
@@ -26,7 +26,7 @@ async function login (username, password){
             return res.data;
         })
     } catch (error) {
-        return handleError(error);
+        return commonService.handleError(error);
     }
 }
 
@@ -39,29 +39,29 @@ async function getAllUser() {
         return await axios({
             method: 'Get',
             headers: authHeader(),
-            url : `${config.apiUrl}/api/nguoi-dung/danh-sach-nguoi-dung`
+            url: `${config.apiUrl}/api/user/getall`
         }).then((res) => {
             return res.data;
         })
     } catch (error) {
-        return handleError(error);
+        return commonService.handleError(error);
     }
 }
 
-async function getUserById(ma_nhan_vien_kc) {
+async function getUserById(id) {
     try {
         return await axios({
             method: 'Get',
             headers: authHeader(),
-            url : `${config.apiUrl}/api/nhan-vien/thong-tin-nhan-vien`,
+            url: `${config.apiUrl}/api/user/informationUser`,
             params: {
-                'ma_nhan_vien_kc' : ma_nhan_vien_kc
+                'id' : id
             }
         }).then((res) => {
             return res.data;
         })
     } catch (error) {
-        return handleError(error);
+        return commonService.handleError(error);
     }
 }
 
@@ -71,36 +71,28 @@ async function createUser(user) {
         return await axios({
             method: 'POST',
             headers: authHeader(),
-            url : `${config.apiUrl}/api/nhan-vien/cap-nhat-thong-tin`,
+            url: `${config.apiUrl}/api/user/update`,
             data: JSON.stringify(user)
         }).then((res) => {
             return res.data;
         })
     } catch (error) {
-        return handleError(error);
+        return commonService.handleError(error);
     }
 }
 
 async function updateUser(user) {
-
     try {
         return await axios({
             method: 'POST',
             headers: authHeader(),
-            url : `${config.apiUrl}/api/nhan-vien/login`,
+            url: `${config.apiUrl}/api/user/login`,
             body: JSON.stringify(user)
         }).then((res) => {
             return res.data;
         })
     } catch (error) {
-        return handleError(error);
+        return commonService.handleError(error);
     }
 }
 
-function handleError(error) {
-    if( error.isAxiosError && error.response.status === 401)
-    {
-        // history.push('/login');
-    }
-    return Promise.reject(error);
-}

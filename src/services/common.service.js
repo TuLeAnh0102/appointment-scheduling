@@ -8,7 +8,8 @@ export const commonService = {
     getDanhMucHuyen,
     getDanhMucXa,
     getDanhMucHuongXuLy,
-    getDanhMucXetNghiem
+    getDanhMucXetNghiem,
+    handleError
 };
 async function getDanhMucTinh() {
     try {
@@ -108,7 +109,7 @@ async function getDanhMucXetNghiem() {
 function handleError(error) {
     if( error.isAxiosError && error.response.status === 401)
     {
-        // history.push('/login');
+        history.push('/login');
     }
     return Promise.reject(error);
 }
